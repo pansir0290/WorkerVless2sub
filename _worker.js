@@ -1,13 +1,13 @@
 // 设置优选地址，不带端口号默认8443，不支持非TLS订阅生成
 let addresses = [
-	'www.visa.com.hk:2096#假装是香港',
-	'icook.tw:2053#假装是台湾',
-	'cloudflare.cfgo.cc#真的是美国'
+	'cu.34310889.xyz:443#肯定能用1',
+	'ip.34310889.xyz:8443#联通应该能用',
+	'cmcc.34310889.xyz:8443#移动可能能用'
 ];
 
 // 设置优选地址api接口
 let addressesapi = [
-	'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt' //可参考内容格式 自行搭建。
+	'https://ipdb.api.030101.xyz/?type=proxy' //可参考内容格式 自行搭建。
 ];
 
 let DLS = 4;//速度下限
@@ -185,7 +185,9 @@ export default {
 					// 错误处理
 				}	
 			}
-		await sendMessage("#获取订阅", request.headers.get('CF-Connecting-IP'), `UA: ${userAgent}</tg-spoiler>\n域名: ${url.hostname}\n<tg-spoiler>入口: ${url.pathname + url.search}</tg-spoiler>`);
+		await sendMessage("#获取订阅", request.headers.get('CF-Connecting-IP'), `UA: ${userAgent}</tg-spoiler>\n域名: ${url.hostname}\n<tg-spoiler>入口: 
+
+${url.pathname + url.search}</tg-spoiler>`);
 		} else {
 			host = url.searchParams.get('host');
 			uuid = url.searchParams.get('uuid');
@@ -248,7 +250,9 @@ export default {
 		if (userAgent.includes('telegram') || userAgent.includes('twitter') || userAgent.includes('miaoko')) {
 			return new Response('Hello World!');
 		} else if (userAgent.includes('clash')) {
-			const subconverterUrl = `https://${subconverter}/sub?target=clash&url=${encodeURIComponent(request.url)}&insert=false&config=${encodeURIComponent(subconfig)}&emoji=true&list=false&tfo=false&scv=false&fdn=false&sort=false&new_name=true`;
+			const subconverterUrl = `https://${subconverter}/sub?target=clash&url=${encodeURIComponent(request.url)}&insert=false&config=${encodeURIComponent
+
+(subconfig)}&emoji=true&list=false&tfo=false&scv=false&fdn=false&sort=false&new_name=true`;
 
 			try {
 				const subconverterResponse = await fetch(subconverterUrl);
@@ -269,7 +273,9 @@ export default {
 				});
 			}
 		} else if (userAgent.includes('sing-box') || userAgent.includes('singbox')){
-			const subconverterUrl = `https://${subconverter}/sub?target=singbox&url=${encodeURIComponent(request.url)}&insert=false&config=${encodeURIComponent(subconfig)}&emoji=true&list=false&tfo=false&scv=false&fdn=false&sort=false&new_name=true`;
+			const subconverterUrl = `https://${subconverter}/sub?target=singbox&url=${encodeURIComponent(request.url)}&insert=false&config=${encodeURIComponent
+
+(subconfig)}&emoji=true&list=false&tfo=false&scv=false&fdn=false&sort=false&new_name=true`;
 
 			try {
 			const subconverterResponse = await fetch(subconverterUrl);
@@ -373,12 +379,16 @@ export default {
 				}
 				
 				let 最终路径 = path ;
-				if(url.searchParams.get('host') && (url.searchParams.get('host').includes('workers.dev') || url.searchParams.get('host').includes('pages.dev'))) {
+				if(url.searchParams.get('host') && (url.searchParams.get('host').includes('workers.dev') || url.searchParams.get('host').includes
+
+('pages.dev'))) {
 					最终路径 = `/${url.searchParams.get('host')}${path}`;
 					host = proxyhosts[Math.floor(Math.random() * proxyhosts.length)];
 					EndPS = ' 已启用临时域名中转服务，请尽快绑定自定义域！';
 				}
-				const vlessLink = `vless://${uuid}@${address}:${port}?encryption=none&security=tls&sni=${host}&fp=random&type=ws&host=${host}&path=${encodeURIComponent(最终路径)}#${encodeURIComponent(addressid + EndPS)}`;
+				const vlessLink = `vless://${uuid}@${address}:${port}?encryption=none&security=tls&sni=${host}&fp=random&type=ws&host=${host}&path=
+
+${encodeURIComponent(最终路径)}#${encodeURIComponent(addressid + EndPS)}`;
 			
 				return vlessLink;
 			}).join('\n');
