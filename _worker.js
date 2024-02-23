@@ -7,7 +7,7 @@ let addresses = [
 
 // 设置优选地址api接口
 let addressesapi = [
-	'https://ipdb.api.030101.xyz/?type=proxy' //可参考内容格式 自行搭建。
+	'http://ipdb.api.030101.xyz/?type=bestproxy' //可参考内容格式 自行搭建。
 ];
 
 let DLS = 4;//速度下限
