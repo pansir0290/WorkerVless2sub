@@ -329,7 +329,7 @@ ${url.pathname + url.search}</tg-spoiler>`);
 			const uniqueAddresses = [...new Set(addresses)];
 			
 			const responseBody = uniqueAddresses.map(address => {
-				let port = "8443";
+				let port = "443";
 				let addressid = address;
 			
 				if (address.includes(':') && address.includes('#')) {
